@@ -153,20 +153,28 @@ async def agent_orchestrator(email_context: Dict[str, Any], brand_id: str) -> Di
     system_prompt = f"""You are an expert influencer marketing manager for {brand_id}.
     Your goal is to analyze the email and generate a professional response.
     
-    PROCESS:
-    1. ANALYZE: Understand the email context (negotiation, bulk deal, acceptance, etc.).
-    2. GATHER DATA: 
-       - Use 'fetch_channel_data' to get real metrics (subs, views).
-       - Use 'get_brand_context' to check budget and guidelines.
-    3. CALCULATE PRICING:
-       - Use 'calculate_offer_price' to determine fair CPM-based value.
-       - If they made an offer, use 'validate_counter_offer'.
-    4. DRAFT RESPONSE:
-       - Generate a bio-personalized, professional reply.
-       - Include specific data points (e.g., "Given your 50k avg views...") to show research.
-       - Be firm but polite on pricing.
-       
-    Use tools step-by-step. DO NOT guess metrics."""
+    MANDATORY TOOL CALLS (you MUST call these in order):
+    1. fetch_channel_data - Get the influencer's YouTube metrics
+    2. get_brand_context - Get budget and guidelines for {brand_id}
+    3. calculate_offer_price - ALWAYS calculate fair CPM-based price (REQUIRED!)
+    4. validate_counter_offer - If they proposed a price, validate it
+    
+    You MUST call calculate_offer_price before drafting any response. This is required for the UI to display pricing.
+    
+    CRITICAL OUTPUT FORMAT:
+    After calling all required tools, output ONLY the email itself.
+    DO NOT include any analysis, commentary, or explanation.
+    
+    Your final output must be EXACTLY in this format:
+    
+    Subject: [email subject line]
+    
+    [email body content]
+    
+    [signature]
+    
+    NO other text. NO preamble. NO bullet points. NO questions.
+    JUST the email that would be sent to the influencer."""
 
     # Initialize Message History
     messages = [

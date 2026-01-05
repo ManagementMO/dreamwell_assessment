@@ -495,16 +495,19 @@ def calculate_offer_price(channel_url: str, campaign_type: str, brand_id: str) -
     
     data = channel_res["data"]
     
-    # 2. Extract Metrics
-    subs = data.get("subscriber_count", 0)
-    avg_views = data.get("avg_views", subs * 0.1) # Approx 10% if missing
+    # 2. Extract Metrics - Handle different field names from API vs local data
+    subs = data.get("subscriber_count") or data.get("subscribers", 0)
+    avg_views = data.get("avg_views") or data.get("avg_views_per_video", subs * 0.1)
     eng_rate = data.get("engagement_rate", 0.05)
-    consistency = data.get("consistency_score", "medium")
+    consistency = data.get("consistency_score") or data.get("consistency", "medium")
     
     # 3. Calculate CPMS
     base_cpm = get_base_cpm(subs)
     eng_mult = get_engagement_multiplier(eng_rate)
-    niche_mult = get_niche_multiplier(data.get("title", ""), data.get("description", ""))
+    niche_mult = get_niche_multiplier(
+        data.get("title") or data.get("channel_name", ""), 
+        data.get("description", "") + " " + data.get("category", "")
+    )
     cons_mult = get_consistency_multiplier(consistency)
     
     final_cpm = base_cpm * eng_mult * niche_mult * cons_mult
