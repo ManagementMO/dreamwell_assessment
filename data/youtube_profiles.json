@@ -11,7 +11,13 @@
     "engagement_rate": 0.25,
     "category": "tech",
     "upload_frequency": "weekly",
-    "recent_video_performance": [28000, 26000, 24000, 23000, 25000],
+    "recent_video_performance": [
+      28000,
+      26000,
+      24000,
+      23000,
+      25000
+    ],
     "consistency_score": "high",
     "description": "Tech reviews and tutorials focused on AI and productivity tools",
     "created_date": "2020-03-15",
@@ -29,7 +35,13 @@
     "engagement_rate": 0.20,
     "category": "tech",
     "upload_frequency": "biweekly",
-    "recent_video_performance": [16000, 15500, 14000, 15000, 16500],
+    "recent_video_performance": [
+      16000,
+      15500,
+      14000,
+      15000,
+      16500
+    ],
     "consistency_score": "high",
     "description": "Programming tutorials for beginners and intermediate developers",
     "created_date": "2019-06-20",
@@ -47,7 +59,13 @@
     "engagement_rate": 0.17,
     "category": "tech",
     "upload_frequency": "weekly",
-    "recent_video_performance": [28000, 24000, 26000, 23000, 25000],
+    "recent_video_performance": [
+      28000,
+      24000,
+      26000,
+      23000,
+      25000
+    ],
     "consistency_score": "high",
     "description": "Artificial Intelligence news, tutorials, and product reviews",
     "created_date": "2018-01-10",
@@ -65,7 +83,13 @@
     "engagement_rate": 0.27,
     "category": "productivity",
     "upload_frequency": "weekly",
-    "recent_video_performance": [15000, 14000, 13000, 12000, 14500],
+    "recent_video_performance": [
+      15000,
+      14000,
+      13000,
+      12000,
+      14500
+    ],
     "consistency_score": "high",
     "description": "Productivity tips, tool reviews, and workflow optimization",
     "created_date": "2020-09-01",
@@ -83,7 +107,13 @@
     "engagement_rate": 0.22,
     "category": "marketing",
     "upload_frequency": "weekly",
-    "recent_video_performance": [19000, 18000, 17000, 16500, 18500],
+    "recent_video_performance": [
+      19000,
+      18000,
+      17000,
+      16500,
+      18500
+    ],
     "consistency_score": "high",
     "description": "Digital marketing strategies, social media tips, and growth hacks",
     "created_date": "2019-03-12",
@@ -101,7 +131,13 @@
     "engagement_rate": 0.06,
     "category": "gaming",
     "upload_frequency": "daily",
-    "recent_video_performance": [35000, 32000, 28000, 30000, 34000],
+    "recent_video_performance": [
+      35000,
+      32000,
+      28000,
+      30000,
+      34000
+    ],
     "consistency_score": "medium",
     "description": "Gaming walkthroughs, reviews, and live streams",
     "created_date": "2017-05-20",
@@ -119,7 +155,13 @@
     "engagement_rate": 0.33,
     "category": "business",
     "upload_frequency": "weekly",
-    "recent_video_performance": [22000, 21000, 19000, 20500, 21500],
+    "recent_video_performance": [
+      22000,
+      21000,
+      19000,
+      20500,
+      21500
+    ],
     "consistency_score": "high",
     "description": "AI applications for business, automation, and productivity",
     "created_date": "2021-02-10",
@@ -137,7 +179,13 @@
     "engagement_rate": 0.15,
     "category": "finance",
     "upload_frequency": "biweekly",
-    "recent_video_performance": [48000, 46000, 44000, 45000, 47000],
+    "recent_video_performance": [
+      48000,
+      46000,
+      44000,
+      45000,
+      47000
+    ],
     "consistency_score": "high",
     "description": "Personal finance, investing strategies, and market analysis",
     "created_date": "2018-07-15",
@@ -155,7 +203,13 @@
     "engagement_rate": 0.40,
     "category": "business",
     "upload_frequency": "biweekly",
-    "recent_video_performance": [20000, 19000, 17000, 18500, 19500],
+    "recent_video_performance": [
+      20000,
+      19000,
+      17000,
+      18500,
+      19500
+    ],
     "consistency_score": "high",
     "description": "Startup journeys, founder interviews, and business advice",
     "created_date": "2020-11-01",
@@ -173,7 +227,13 @@
     "engagement_rate": 0.20,
     "category": "tech",
     "upload_frequency": "weekly",
-    "recent_video_performance": [26000, 24000, 23000, 25000, 26500],
+    "recent_video_performance": [
+      26000,
+      24000,
+      23000,
+      25000,
+      26500
+    ],
     "consistency_score": "high",
     "description": "Data science tutorials, machine learning, and analytics",
     "created_date": "2019-08-05",
@@ -191,7 +251,13 @@
     "engagement_rate": 1.50,
     "category": "tech",
     "upload_frequency": "weekly",
-    "recent_video_performance": [14000, 13500, 11000, 12500, 13000],
+    "recent_video_performance": [
+      14000,
+      13500,
+      11000,
+      12500,
+      13000
+    ],
     "consistency_score": "high",
     "description": "Tech tutorials and AI tool reviews for beginners",
     "created_date": "2023-06-01",
@@ -209,7 +275,13 @@
     "engagement_rate": 0.033,
     "category": "tech",
     "upload_frequency": "daily",
-    "recent_video_performance": [52000, 48000, 45000, 49000, 51000],
+    "recent_video_performance": [
+      52000,
+      48000,
+      45000,
+      49000,
+      51000
+    ],
     "consistency_score": "medium",
     "description": "Tech news and reviews",
     "created_date": "2015-03-10",
@@ -227,7 +299,13 @@
     "engagement_rate": 0.025,
     "category": "tech",
     "upload_frequency": "sporadic",
-    "recent_video_performance": [8000, 7500, 6000, 7000, 8500],
+    "recent_video_performance": [
+      8000,
+      7500,
+      6000,
+      7000,
+      8500
+    ],
     "consistency_score": "low",
     "description": "Technology reviews (declining engagement)",
     "created_date": "2016-05-20",
@@ -245,7 +323,13 @@
     "engagement_rate": 0.33,
     "category": "tech",
     "upload_frequency": "irregular",
-    "recent_video_performance": [25000, 8000, 22000, 10000, 18000],
+    "recent_video_performance": [
+      25000,
+      8000,
+      22000,
+      10000,
+      18000
+    ],
     "consistency_score": "low",
     "description": "Tech content with irregular posting schedule",
     "created_date": "2020-01-15",
@@ -263,10 +347,88 @@
     "engagement_rate": 0.25,
     "category": "tech",
     "upload_frequency": "weekly",
-    "recent_video_performance": [27000, 26000, 24000, 25500, 26500],
+    "recent_video_performance": [
+      27000,
+      26000,
+      24000,
+      25500,
+      26500
+    ],
     "consistency_score": "high",
     "description": "AI tools, reviews, and tutorials - perfect for AI product sponsors",
     "created_date": "2020-06-01",
     "country": "US"
+  },
+  {
+    "channel_id": "UCgaming_kyle",
+    "channel_url": "https://www.youtube.com/@GamingProKyle",
+    "channel_name": "Gaming Pro Kyle",
+    "handle": "@GamingProKyle",
+    "subscribers": 2000000,
+    "total_views": 100000000,
+    "video_count": 500,
+    "avg_views_per_video": 40000,
+    "engagement_rate": 0.008,
+    "category": "gaming",
+    "upload_frequency": "daily",
+    "recent_video_performance": [
+      42000,
+      38000,
+      41000,
+      39000,
+      40000
+    ],
+    "consistency_score": "high",
+    "description": "Daily gaming highlights and funny moments",
+    "created_date": "2015-08-12",
+    "country": "US"
+  },
+  {
+    "channel_id": "UChealthy_sarah",
+    "channel_url": "https://www.youtube.com/@HealthyLivingSarah",
+    "channel_name": "Healthy Living Sarah",
+    "handle": "@HealthyLivingSarah",
+    "subscribers": 150000,
+    "total_views": 12000000,
+    "video_count": 400,
+    "avg_views_per_video": 80000,
+    "engagement_rate": 0.08,
+    "category": "lifestyle",
+    "upload_frequency": "weekly",
+    "recent_video_performance": [
+      85000,
+      90000,
+      78000,
+      82000,
+      88000
+    ],
+    "consistency_score": "high",
+    "description": "Holistic health, nutrition, and fitness tips for busy people",
+    "created_date": "2018-04-20",
+    "country": "US"
+  },
+  {
+    "channel_id": "UCcrypto_king",
+    "channel_url": "https://www.youtube.com/@CryptoKing",
+    "channel_name": "Crypto King",
+    "handle": "@CryptoKing",
+    "subscribers": 500000,
+    "total_views": 50000000,
+    "video_count": 600,
+    "avg_views_per_video": 100000,
+    "engagement_rate": 0.05,
+    "category": "finance",
+    "upload_frequency": "daily",
+    "recent_video_performance": [
+      350000,
+      20000,
+      15000,
+      500000,
+      30000
+    ],
+    "consistency_score": "low",
+    "description": "Crypto news, gem hunting, and market analysis",
+    "created_date": "2017-12-01",
+    "country": "UK"
   }
 ]

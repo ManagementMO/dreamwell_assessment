@@ -54,10 +54,31 @@ export interface PricingBreakdown {
   };
 }
 
+export interface ROIForecast {
+  estimated_revenue: number;
+  roas: number;
+  estimated_conversions: number;
+  assessment: string;
+  confidence_score: number;
+}
+
+export interface AuthenticityData {
+  score: number;
+  assessment: string;
+  recommendation: string;
+  red_flags: Array<{
+    flag: string;
+    detail: string;
+    severity: 'low' | 'medium' | 'high';
+  }>;
+}
+
 export interface GeneratedResponse {
   category: string;
   response_draft: string;
   pricing_breakdown?: PricingBreakdown;
+  roi_forecast?: ROIForecast;
+  authenticity_data?: AuthenticityData;
 }
 
 // API Functions

@@ -523,5 +523,180 @@
         "timestamp": "2024-02-04T14:00:00Z"
       }
     ]
+  },
+  {
+    "thread_id": "thread_nord_001",
+    "category": "price_negotiation",
+    "influencer_name": "Kyle Jenkins",
+    "influencer_email": "kyle@gamingpro.com",
+    "youtube_channel_url": "https://www.youtube.com/@GamingProKyle",
+    "brand": "nordvpn",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "partnerships@nordvpn.com",
+        "to": "kyle@gamingpro.com",
+        "subject": "NordVPN Sponsorship Offer",
+        "body": "Hi Kyle,\n\nWe're huge fans of your gaming content! We'd like to offer you a sponsorship deal for $2,000 for a 60-second integration in your next video.\n\nLet us know if you're interested.\n\nBest,\nDavid",
+        "timestamp": "2024-02-10T09:00:00Z"
+      },
+      {
+        "from": "kyle@gamingpro.com",
+        "to": "partnerships@nordvpn.com",
+        "subject": "Re: NordVPN Sponsorship Offer",
+        "body": "Hey David,\n\nThanks for the offer, but $2,000 is way too low. I have 2 MILLION subscribers. My standard rate is $5,000 minimum. My audience is massive.\n\nCan you match my rate?\n\nKyle",
+        "timestamp": "2024-02-10T14:30:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_ag1_001",
+    "category": "price_negotiation",
+    "influencer_name": "Sarah Fit",
+    "influencer_email": "sarah@healthyliving.com",
+    "youtube_channel_url": "https://www.youtube.com/@HealthyLivingSarah",
+    "brand": "athletic_greens",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "creators@athleticgreens.com",
+        "to": "sarah@healthyliving.com",
+        "subject": "Partner with AG1?",
+        "body": "Hi Sarah,\n\nWe love your holistic approach to health. We'd like to partner with you for an AG1 integration. We can offer $2,500 for a 90-second spot sharing your morning routine.\n\nBest,\nSarah Green",
+        "timestamp": "2024-02-12T10:00:00Z"
+      },
+      {
+        "from": "sarah@healthyliving.com",
+        "to": "creators@athleticgreens.com",
+        "subject": "Re: Partner with AG1?",
+        "body": "Hi Sarah! (Great name!)\n\nI actually use AG1 every day, so this is a perfect fit! $2,500 is a good starting point, but given my high engagement (8%) and niche audience, I usually charge closer to $3,000. Would you be open to that if I include an Instagram Story as a bonus?\n\nBest,\nSarah",
+        "timestamp": "2024-02-12T12:15:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_nord_002",
+    "category": "clarification",
+    "influencer_name": "Crypto King",
+    "influencer_email": "king@cryptoking.io",
+    "youtube_channel_url": "https://www.youtube.com/@CryptoKing",
+    "brand": "nordvpn",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "partnerships@nordvpn.com",
+        "to": "king@cryptoking.io",
+        "subject": "Security for Crypto Traders",
+        "body": "Hi,\n\nWe'd like to sponsor a segment on security for crypto trading. Offering $1,500.\n\nDavid",
+        "timestamp": "2024-02-15T11:00:00Z"
+      },
+      {
+        "from": "king@cryptoking.io",
+        "to": "partnerships@nordvpn.com",
+        "subject": "Re: Security for Crypto Traders",
+        "body": "Yo David,\n\nSounds interesting. Do you pay in Bitcoin? Also, can I say that using a VPN guarantees their crypto won't be stolen? Need to hype it up.\n\nCK",
+        "timestamp": "2024-02-15T11:45:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_api_test_fireship",
+    "category": "price_negotiation",
+    "influencer_name": "Fireship (REAL API TEST)",
+    "influencer_email": "contact@fireship.io",
+    "youtube_channel_url": "https://www.youtube.com/@Fireship",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "contact@fireship.io",
+        "subject": "Partnership Opportunity - Perplexity AI",
+        "body": "Hi Fireship team,\n\nWe're huge fans of your concise, high-quality tech content! We'd love to sponsor a video about AI search tools and developer productivity.\n\nBased on your channel's performance, we're offering $2,500 for a 60-90 second integration.\n\nInterested in collaborating?\n\nBest,\nSarah from Perplexity",
+        "timestamp": "2024-02-20T10:00:00Z"
+      },
+      {
+        "from": "contact@fireship.io",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: Partnership Opportunity - Perplexity AI",
+        "body": "Hey Sarah,\n\nThanks for reaching out! I actually use Perplexity regularly, so this could be a great fit.\n\nMy standard rate for tech tool integrations is $3,000. Can you meet that?\n\nLet me know!\n\nFireship",
+        "timestamp": "2024-02-20T14:30:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_api_test_veritasium",
+    "category": "acceptance",
+    "influencer_name": "Veritasium (REAL API TEST)",
+    "influencer_email": "derek@veritasium.com",
+    "youtube_channel_url": "https://www.youtube.com/@veritasium",
+    "brand": "copyai",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "partnerships@copy.ai",
+        "to": "derek@veritasium.com",
+        "subject": "Copy.ai Sponsorship - Science Education",
+        "body": "Hi Derek,\n\nWe're Copy.ai, an AI writing assistant that helps researchers and creators with content generation.\n\nWe'd love to sponsor Veritasium for a segment on how AI is transforming scientific communication. Given your reach and engagement, we're offering $8,000.\n\nWould this interest you?\n\nBest,\nMike Chen",
+        "timestamp": "2024-02-21T09:00:00Z"
+      },
+      {
+        "from": "derek@veritasium.com",
+        "to": "partnerships@copy.ai",
+        "subject": "Re: Copy.ai Sponsorship - Science Education",
+        "body": "Hi Mike,\n\nThis sounds like a perfect fit! I've been exploring AI tools for script writing and research. $8,000 works well for me.\n\nLet's discuss the creative direction. I want to make sure the integration feels natural and educational.\n\nWhen can we start?\n\nDerek",
+        "timestamp": "2024-02-21T11:30:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_api_test_mkbhd",
+    "category": "bulk_deal",
+    "influencer_name": "MKBHD (REAL API TEST)",
+    "influencer_email": "marques@mkbhd.com",
+    "youtube_channel_url": "https://www.youtube.com/@mkbhd",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "marques@mkbhd.com",
+        "subject": "Long-term Partnership with Perplexity AI",
+        "body": "Hi Marques,\n\nWe're Perplexity AI, the conversational search engine. We've been following your tech reviews for years.\n\nWe'd like to discuss a long-term partnership - potentially 3-4 videos over the next quarter. For your channel size and engagement, we're thinking $12,000 per integration.\n\nOpen to discussing a package deal?\n\nBest,\nSarah Johnson\nHead of Creator Partnerships",
+        "timestamp": "2024-02-22T10:00:00Z"
+      },
+      {
+        "from": "marques@mkbhd.com",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: Long-term Partnership with Perplexity AI",
+        "body": "Hey Sarah,\n\nThanks for the outreach! I'm definitely interested in a multi-video partnership.\n\nFor a 4-video package, I could do $45,000 total (which works out to $11,250 per video). This would give you consistent integration across different content types - reviews, podcasts, and studio videos.\n\nThoughts?\n\nMarques",
+        "timestamp": "2024-02-22T15:45:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_api_test_3blue1brown",
+    "category": "clarification",
+    "influencer_name": "3Blue1Brown (REAL API TEST)",
+    "influencer_email": "grant@3blue1brown.com",
+    "youtube_channel_url": "https://www.youtube.com/@3blue1brown",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "grant@3blue1brown.com",
+        "subject": "Sponsorship for Math/AI Education",
+        "body": "Hi Grant,\n\nWe're Perplexity AI, and we love your approach to visual math education.\n\nWe'd like to sponsor a video exploring how AI search can help with mathematical research and learning. Offering $4,500 for an integration.\n\nInterested?\n\nSarah",
+        "timestamp": "2024-02-23T09:30:00Z"
+      },
+      {
+        "from": "grant@3blue1brown.com",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: Sponsorship for Math/AI Education",
+        "body": "Hi Sarah,\n\nThis sounds interesting! A few questions:\n\n1. Would I have full creative control over how the sponsorship is integrated?\n2. Can I use Perplexity to demonstrate actual math problem-solving in the video, or is it just a standard sponsor segment?\n3. What's the timeline for this?\n\nThe pricing seems reasonable, but I want to make sure it aligns with my content style.\n\nGrant",
+        "timestamp": "2024-02-23T14:00:00Z"
+      }
+    ]
   }
 ]

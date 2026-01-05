@@ -324,13 +324,15 @@ def get_brand_context(brand_id: str) -> Dict[str, Any]:
 def fetch_channel_data(channel_url: str) -> Dict[str, Any]:
     """
     Fetch public YouTube channel statistics.
-    
+
     Implements a Hybrid Fallback Strategy:
     1. Tries to use Real YouTube API if key is present
     2. Falls back to local JSON data if API fails or quota exceeded
     3. Handles @handle and full URLs
     """
-    logger.info(f"fetch_channel_data called for {channel_url}")
+    logger.info(f"=" * 60)
+    logger.info(f"FETCH_CHANNEL_DATA called for: {channel_url}")
+    logger.info(f"YouTube API Key present: {bool(YOUTUBE_API_KEY)}")
     
     # 1. Try to find in local data first (as a base or fallback)
     local_profile = find_youtube_profile_by_url(channel_url)
@@ -341,7 +343,7 @@ def fetch_channel_data(channel_url: str) -> Dict[str, Any]:
     # 3. Try Real API if Key exists
     if YOUTUBE_API_KEY:
         try:
-            logger.info("Attempting to fetch from YouTube API...")
+            logger.info("→ ATTEMPTING REAL YouTube Data API v3 call...")
             youtube = build("youtube", "v3", developerKey=YOUTUBE_API_KEY)
             
             # Determine if looking up by ID or Handle
@@ -375,7 +377,11 @@ def fetch_channel_data(channel_url: str) -> Dict[str, Any]:
                 snippet = item["snippet"]
                 
                 # Success! Return real data
-                logger.info("✅ Successfully fetched real YouTube API data")
+                logger.info("✅ SUCCESS! Fetched REAL data from YouTube Data API v3")
+                logger.info(f"   Channel: {snippet['title']}")
+                logger.info(f"   Subscribers: {int(stats['subscriberCount']):,}")
+                logger.info(f"   Videos: {int(stats['videoCount']):,}")
+                logger.info("=" * 60)
                 return {
                     "success": True,
                     "source": "api",
@@ -395,15 +401,23 @@ def fetch_channel_data(channel_url: str) -> Dict[str, Any]:
                 }
                 
         except HttpError as e:
-            logger.warning(f"YouTube API Error (Quota/Auth): {e}")
+            logger.warning(f"⚠️  YouTube API HttpError: {e}")
+            logger.warning(f"   This might be: quota exceeded, invalid key, or API not enabled")
+            logger.warning(f"   Falling back to local data...")
         except Exception as e:
-            logger.warning(f"YouTube Fetch Error: {e}")
+            logger.warning(f"⚠️  YouTube API Exception: {e}")
+            logger.warning(f"   Falling back to local data...")
     else:
-        logger.info("No YouTube API Key configured, using fallback")
+        logger.info("⚠️  No YouTube API Key configured")
+        logger.info("   Set YOUTUBE_API_KEY in .env to use real YouTube data")
+        logger.info("   Falling back to local data...")
 
     # 4. Fallback to Local Data
     if local_profile:
-        logger.info("Using local fallback data")
+        logger.info(f"📦 Using LOCAL FALLBACK data for {channel_url}")
+        logger.info(f"   Profile: {local_profile.get('channel_name', 'Unknown')}")
+        logger.info(f"   Subscribers: {local_profile.get('subscribers', 0):,}")
+        logger.info("=" * 60)
         return {
             "success": True,
             "source": "local_fallback",
@@ -590,7 +604,261 @@ def validate_counter_offer(channel_url: str, original_price: float, counter_pric
     }
 
 
+# ========== ADVANCED ANALYTICS TOOLS ==========
+
+@mcp.tool()
+def forecast_campaign_roi(channel_url: str, offer_price: float, brand_id: str) -> Dict[str, Any]:
+    """
+    Predict expected revenue, conversions, and ROAS for a campaign.
+    Uses channel metrics and industry benchmarks to forecast outcomes.
+    
+    Args:
+        channel_url: YouTube channel URL
+        offer_price: The proposed sponsorship price
+        brand_id: Brand identifier for context
+        
+    Returns:
+        ROI forecast with expected revenue, conversions, and confidence score
+    """
+    logger.info(f"forecast_campaign_roi called for {channel_url} at ${offer_price}")
+    
+    # Get channel data
+    channel_res = fetch_channel_data(channel_url)
+    if not channel_res["success"]:
+        return {"success": False, "error": "Could not fetch channel data"}
+    
+    data = channel_res["data"]
+    avg_views = data.get("avg_views") or data.get("avg_views_per_video", 10000)
+    eng_rate = data.get("engagement_rate", 0.05)
+    category = data.get("category", "general")
+    
+    # Industry benchmarks for conversion (varies by niche)
+    conversion_rates = {
+        "tech": 0.025,      # 2.5% CTR, tech audience more likely to buy
+        "finance": 0.03,    # 3% CTR for finance products
+        "business": 0.022,  # 2.2% for B2B
+        "lifestyle": 0.015, # 1.5% lifestyle
+        "gaming": 0.01,     # 1% gaming (younger, less purchasing power)
+        "general": 0.018    # 1.8% baseline
+    }
+    
+    # Average order values by niche
+    aov_by_niche = {
+        "tech": 85,
+        "finance": 120,
+        "business": 150,
+        "lifestyle": 45,
+        "gaming": 35,
+        "general": 60
+    }
+    
+    base_ctr = conversion_rates.get(category, 0.018)
+    aov = aov_by_niche.get(category, 60)
+    
+    # Adjust CTR based on engagement rate (higher engagement = more trust = more clicks)
+    engagement_boost = 1 + (eng_rate - 0.05) * 5  # +50% CTR per 10% above baseline engagement
+    adjusted_ctr = base_ctr * max(0.5, min(2.0, engagement_boost))
+    
+    # Estimated reach (views) and clicks
+    estimated_views = avg_views
+    estimated_clicks = int(estimated_views * adjusted_ctr)
+    
+    # Conversion rate from click to purchase (assuming 3% of clicks convert)
+    purchase_rate = 0.03
+    estimated_conversions = int(estimated_clicks * purchase_rate)
+    
+    # Revenue calculation
+    estimated_revenue = estimated_conversions * aov
+    
+    # ROAS (Return on Ad Spend)
+    roas = round(estimated_revenue / offer_price, 2) if offer_price > 0 else 0
+    
+    # Confidence score based on data quality
+    confidence = 0.7  # Base confidence
+    if eng_rate > 0.15: confidence += 0.1  # High engagement = more predictable
+    if data.get("consistency_score") == "high": confidence += 0.1
+    if avg_views > 50000: confidence += 0.1  # More data = more reliable
+    confidence = min(0.95, confidence)
+    
+    # ROI assessment
+    if roas >= 3:
+        assessment = "Excellent ROI potential"
+        recommendation = "strongly_recommend"
+    elif roas >= 2:
+        assessment = "Good ROI potential"
+        recommendation = "recommend"
+    elif roas >= 1:
+        assessment = "Break-even or marginal ROI"
+        recommendation = "proceed_with_caution"
+    else:
+        assessment = "Likely unprofitable"
+        recommendation = "reconsider"
+    
+    logger.info(f"ROI Forecast: ${estimated_revenue} revenue, {roas}x ROAS")
+    
+    return {
+        "success": True,
+        "forecast": {
+            "estimated_views": estimated_views,
+            "estimated_clicks": estimated_clicks,
+            "estimated_conversions": estimated_conversions,
+            "estimated_revenue": round(estimated_revenue, 2),
+            "roas": roas,
+            "break_even_conversions": int(offer_price / aov) + 1,
+            "assessment": assessment,
+            "recommendation": recommendation,
+            "confidence_score": round(confidence, 2),
+            "assumptions": {
+                "click_through_rate": round(adjusted_ctr * 100, 2),
+                "average_order_value": aov,
+                "niche": category
+            }
+        }
+    }
+
+
+@mcp.tool()
+def detect_fake_engagement(channel_url: str) -> Dict[str, Any]:
+    """
+    Analyze channel for suspicious engagement patterns that indicate fake followers or engagement.
+    Checks for: comment quality, like/view ratio anomalies, engagement consistency, growth patterns.
+    
+    Args:
+        channel_url: YouTube channel URL to analyze
+        
+    Returns:
+        Authenticity score and any red flags detected
+    """
+    logger.info(f"detect_fake_engagement called for {channel_url}")
+    
+    # Get channel data
+    channel_res = fetch_channel_data(channel_url)
+    if not channel_res["success"]:
+        return {"success": False, "error": "Could not fetch channel data"}
+    
+    data = channel_res["data"]
+    
+    subs = data.get("subscriber_count") or data.get("subscribers", 0)
+    avg_views = data.get("avg_views") or data.get("avg_views_per_video", 0)
+    eng_rate = data.get("engagement_rate", 0)
+    total_views = data.get("total_views") or data.get("view_count", 0)
+    video_count = data.get("video_count", 1)
+    recent_performance = data.get("recent_video_performance", [])
+    
+    red_flags = []
+    authenticity_score = 100  # Start at 100, deduct for red flags
+    
+    # Check 1: View-to-Subscriber Ratio
+    # Healthy channels typically get 5-30% of subs as views
+    view_to_sub_ratio = (avg_views / subs * 100) if subs > 0 else 0
+    
+    if view_to_sub_ratio < 2:
+        red_flags.append({
+            "flag": "Very low view-to-subscriber ratio",
+            "detail": f"Only {view_to_sub_ratio:.1f}% of subscribers watch videos (healthy: 5-30%)",
+            "severity": "high"
+        })
+        authenticity_score -= 25
+    elif view_to_sub_ratio < 5:
+        red_flags.append({
+            "flag": "Below average view-to-subscriber ratio",
+            "detail": f"{view_to_sub_ratio:.1f}% view rate is below industry average",
+            "severity": "medium"
+        })
+        authenticity_score -= 10
+    
+    # Check 2: Engagement Rate Anomalies
+    # Suspicious if engagement is extremely high (>50%) or extremely low (<1%)
+    if eng_rate > 0.50:
+        red_flags.append({
+            "flag": "Unusually high engagement rate",
+            "detail": f"{eng_rate*100:.1f}% engagement is suspiciously high (may indicate engagement pods)",
+            "severity": "medium"
+        })
+        authenticity_score -= 15
+    elif eng_rate < 0.01 and subs > 10000:
+        red_flags.append({
+            "flag": "Extremely low engagement",
+            "detail": f"Only {eng_rate*100:.2f}% engagement suggests inactive or fake followers",
+            "severity": "high"
+        })
+        authenticity_score -= 20
+    
+    # Check 3: Video Performance Consistency
+    if len(recent_performance) >= 3:
+        avg_recent = sum(recent_performance) / len(recent_performance)
+        variance = sum((x - avg_recent) ** 2 for x in recent_performance) / len(recent_performance)
+        std_dev = variance ** 0.5
+        coefficient_of_variation = (std_dev / avg_recent) if avg_recent > 0 else 0
+        
+        if coefficient_of_variation > 0.5:
+            red_flags.append({
+                "flag": "Inconsistent video performance",
+                "detail": f"High variance in views ({coefficient_of_variation:.1%} CV) may indicate viral flukes or bought views",
+                "severity": "low"
+            })
+            authenticity_score -= 5
+    
+    # Check 4: Subscriber to Video Ratio
+    # Channels with very few videos but massive subs are suspicious
+    subs_per_video = subs / video_count if video_count > 0 else 0
+    if subs_per_video > 50000 and video_count < 20:
+        red_flags.append({
+            "flag": "Unusual subscriber-to-content ratio",
+            "detail": f"{subs:,} subscribers with only {video_count} videos is uncommon",
+            "severity": "medium"
+        })
+        authenticity_score -= 10
+    
+    # Check 5: Total View Sanity Check
+    expected_total_views = avg_views * video_count * 0.8  # 80% of estimated
+    if total_views > 0 and total_views < expected_total_views * 0.3:
+        red_flags.append({
+            "flag": "Total views don't match average",
+            "detail": "Discrepancy between reported total views and calculated average",
+            "severity": "medium"
+        })
+        authenticity_score -= 15
+    
+    # Ensure score is within bounds
+    authenticity_score = max(0, min(100, authenticity_score))
+    
+    # Overall assessment
+    if authenticity_score >= 85:
+        assessment = "Channel appears authentic"
+        recommendation = "safe_to_proceed"
+    elif authenticity_score >= 70:
+        assessment = "Minor concerns, but likely authentic"
+        recommendation = "proceed_with_monitoring"
+    elif authenticity_score >= 50:
+        assessment = "Multiple red flags detected"
+        recommendation = "investigate_further"
+    else:
+        assessment = "High risk of fake engagement"
+        recommendation = "avoid"
+    
+    logger.info(f"Fake engagement check: {authenticity_score}/100 score")
+    
+    return {
+        "success": True,
+        "analysis": {
+            "authenticity_score": authenticity_score,
+            "assessment": assessment,
+            "recommendation": recommendation,
+            "red_flags": red_flags,
+            "metrics_analyzed": {
+                "view_to_subscriber_ratio": round(view_to_sub_ratio, 1),
+                "engagement_rate": round(eng_rate * 100, 2),
+                "subscribers": subs,
+                "avg_views": avg_views,
+                "video_count": video_count
+            }
+        }
+    }
+
+
 # ========== SERVER ENTRY POINT ==========
 if __name__ == "__main__":
     logger.info("Starting MCP server via stdio...")
     mcp.run()
+

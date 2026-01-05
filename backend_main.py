@@ -12,6 +12,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from typing import Dict, Any
+from datetime import datetime
 import json
 import logging
 
@@ -153,13 +154,16 @@ async def agent_orchestrator(email_context: Dict[str, Any], brand_id: str) -> Di
     system_prompt = f"""You are an expert influencer marketing manager for {brand_id}.
     Your goal is to analyze the email and generate a professional response.
     
-    MANDATORY TOOL CALLS (you MUST call these in order):
+    MANDATORY TOOL CALLS (you MUST call ALL of these in order):
     1. fetch_channel_data - Get the influencer's YouTube metrics
-    2. get_brand_context - Get budget and guidelines for {brand_id}
-    3. calculate_offer_price - ALWAYS calculate fair CPM-based price (REQUIRED!)
-    4. validate_counter_offer - If they proposed a price, validate it
+    2. detect_fake_engagement - Check for fake followers/engagement (REQUIRED!)
+    3. get_brand_context - Get budget and guidelines for {brand_id}
+    4. calculate_offer_price - Calculate fair CPM-based price (REQUIRED!)
+    5. forecast_campaign_roi - Predict expected revenue and ROAS (REQUIRED!)
+    6. validate_counter_offer - If they proposed a price, validate it
     
-    You MUST call calculate_offer_price before drafting any response. This is required for the UI to display pricing.
+    You MUST call detect_fake_engagement, calculate_offer_price, and forecast_campaign_roi.
+    These are required for the UI to display analytics.
     
     CRITICAL OUTPUT FORMAT:
     After calling all required tools, output ONLY the email itself.
@@ -184,6 +188,8 @@ async def agent_orchestrator(email_context: Dict[str, Any], brand_id: str) -> Di
     
     MAX_ITERATIONS = 5
     pricing_breakdown = None
+    roi_forecast = None
+    authenticity_data = None
     
     logger.info(f"🤖 Starting Agent Loop for {brand_id} (Max {MAX_ITERATIONS} iterations)")
     
@@ -249,6 +255,37 @@ async def agent_orchestrator(email_context: Dict[str, Any], brand_id: str) -> Di
                                      }
                              except:
                                  pass
+                         
+                         # Capture ROI forecast for UI
+                         if t_name == "forecast_campaign_roi":
+                             try:
+                                 data = json.loads(tool_output)
+                                 if data.get("success"):
+                                     forecast = data.get("forecast", {})
+                                     roi_forecast = {
+                                         "estimated_revenue": forecast.get("estimated_revenue", 0),
+                                         "roas": forecast.get("roas", 0),
+                                         "estimated_conversions": forecast.get("estimated_conversions", 0),
+                                         "assessment": forecast.get("assessment", ""),
+                                         "confidence_score": forecast.get("confidence_score", 0.7),
+                                     }
+                             except:
+                                 pass
+                         
+                         # Capture authenticity analysis for UI
+                         if t_name == "detect_fake_engagement":
+                             try:
+                                 data = json.loads(tool_output)
+                                 if data.get("success"):
+                                     analysis = data.get("analysis", {})
+                                     authenticity_data = {
+                                         "score": analysis.get("authenticity_score", 100),
+                                         "assessment": analysis.get("assessment", ""),
+                                         "recommendation": analysis.get("recommendation", ""),
+                                         "red_flags": analysis.get("red_flags", []),
+                                     }
+                             except:
+                                 pass
                      else:
                          tool_output = str(result.content[0])
                 else:
@@ -283,8 +320,10 @@ async def agent_orchestrator(email_context: Dict[str, Any], brand_id: str) -> Di
         "category": category,
         "response_draft": messages[-1].content,
         "pricing_breakdown": pricing_breakdown,
+        "roi_forecast": roi_forecast,
+        "authenticity_data": authenticity_data,
         "iterations_used": i + 1,
-        "message_history": [] # Don't return full history to frontend yet to save bandwidth
+        "message_history": []
     }
 
 
@@ -298,6 +337,107 @@ async def root():
         "service": "Dreamwell Influencer Agent API",
         "version": "1.0.0"
     }
+
+
+@app.get("/api/health")
+async def health_check():
+    """
+    Comprehensive health check including API key status.
+    Useful for debugging API integration.
+    """
+    import os
+
+    # Check environment variables
+    youtube_key_present = bool(config.YOUTUBE_API_KEY and config.YOUTUBE_API_KEY != "your_youtube_api_key_here")
+    openai_key_present = bool(config.OPENAI_API_KEY and config.OPENAI_API_KEY.startswith("sk-"))
+
+    # Check MCP session
+    mcp_session_active = hasattr(app.state, 'mcp_session') and app.state.mcp_session is not None
+
+    # Get tool count if session is active
+    tool_count = 0
+    if mcp_session_active:
+        try:
+            tools_list = await app.state.mcp_session.list_tools()
+            tool_count = len(tools_list.tools)
+        except:
+            pass
+
+    health_status = {
+        "status": "healthy" if (mcp_session_active and openai_key_present) else "degraded",
+        "timestamp": datetime.now().isoformat(),
+        "components": {
+            "mcp_server": {
+                "status": "up" if mcp_session_active else "down",
+                "tools_available": tool_count
+            },
+            "openai_api": {
+                "status": "configured" if openai_key_present else "not_configured",
+                "key_present": openai_key_present
+            },
+            "youtube_api": {
+                "status": "configured" if youtube_key_present else "not_configured",
+                "key_present": youtube_key_present,
+                "will_use": "real_api" if youtube_key_present else "local_fallback",
+                "note": "Real YouTube data will be fetched if key is valid" if youtube_key_present else "Using local fallback data from youtube_profiles.json"
+            }
+        },
+        "cors_origins": config.CORS_ORIGINS
+    }
+
+    return health_status
+
+
+@app.get("/api/test-youtube/{channel_handle}")
+async def test_youtube_api(channel_handle: str):
+    """
+    Quick test endpoint to check YouTube API integration.
+
+    Usage: GET /api/test-youtube/@Fireship
+
+    Returns channel data and indicates if it came from API or fallback.
+    """
+    logger.info(f"Testing YouTube API with channel: {channel_handle}")
+
+    try:
+        session = app.state.mcp_session
+
+        # Construct URL
+        if not channel_handle.startswith("http"):
+            channel_url = f"https://www.youtube.com/{channel_handle}"
+        else:
+            channel_url = channel_handle
+
+        # Call MCP tool
+        result = await session.call_tool("fetch_channel_data", {"channel_url": channel_url})
+
+        # Parse result
+        if hasattr(result, 'content') and len(result.content) > 0:
+            content_item = result.content[0]
+            if hasattr(content_item, 'text'):
+                data = json.loads(content_item.text)
+
+                # Add helpful metadata
+                if data.get("success"):
+                    source = data.get("source", "unknown")
+                    data["test_info"] = {
+                        "using_real_api": source == "api",
+                        "using_fallback": source == "local_fallback",
+                        "data_source": source,
+                        "explanation": (
+                            "✅ Successfully fetched from YouTube Data API v3" if source == "api"
+                            else "⚠️ Using local fallback data (API key not configured or quota exceeded)" if source == "local_fallback"
+                            else "❓ Unknown data source"
+                        )
+                    }
+
+                return data
+
+        return {"success": False, "error": "Invalid response format"}
+
+    except Exception as e:
+        logger.error(f"Error testing YouTube API: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/api/emails")

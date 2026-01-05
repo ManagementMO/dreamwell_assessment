@@ -26,6 +26,8 @@ export const EmailDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const [responseContent, setResponseContent] = useState('');
     const [pricingData, setPricingData] = useState<any>(null);
+    const [roiData, setRoiData] = useState<any>(null);
+    const [authenticityData, setAuthenticityData] = useState<any>(null);
 
     const { data: email, isLoading: isLoadingEmail, error: emailError } = useQuery({
         queryKey: ['email', id],
@@ -40,6 +42,12 @@ export const EmailDetail: React.FC = () => {
             setResponseContent(data.response_draft);
             if (data.pricing_breakdown) {
                 setPricingData(data.pricing_breakdown);
+            }
+            if (data.roi_forecast) {
+                setRoiData(data.roi_forecast);
+            }
+            if (data.authenticity_data) {
+                setAuthenticityData(data.authenticity_data);
             }
         },
     });
@@ -223,6 +231,112 @@ export const EmailDetail: React.FC = () => {
                                     ))}
                                 </Stack>
                             </Paper>
+                        )}
+
+                        {/* Compact Detailed Analytics Row */}
+                        {(roiData || authenticityData) && (
+                            <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
+                                {/* ROI Forecast - Compact Detail */}
+                                {roiData && (
+                                    <Paper variant="outlined" sx={{ p: 2, bgcolor: 'grey.50', flex: 1 }}>
+                                        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 1.5 }}>
+                                            <Typography variant="body2" fontWeight={600} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                                📈 ROI Forecast
+                                            </Typography>
+                                            <Typography variant="body1" fontWeight={700} sx={{
+                                                color: roiData.roas >= 2 ? 'success.main' : roiData.roas >= 1 ? 'warning.main' : 'error.main'
+                                            }}>
+                                                {roiData.roas}x ROAS
+                                            </Typography>
+                                        </Stack>
+
+                                        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1, mb: 1.5 }}>
+                                            <Box>
+                                                <Typography variant="caption" color="text.secondary" display="block" sx={{ fontSize: '0.7rem' }}>Est. Revenue</Typography>
+                                                <Typography variant="caption" fontWeight={700}>${roiData.estimated_revenue?.toLocaleString()}</Typography>
+                                            </Box>
+                                            <Box>
+                                                <Typography variant="caption" color="text.secondary" display="block" sx={{ fontSize: '0.7rem' }}>Conv.</Typography>
+                                                <Typography variant="caption" fontWeight={700}>{roiData.estimated_conversions}</Typography>
+                                            </Box>
+                                            <Box>
+                                                <Typography variant="caption" color="text.secondary" display="block" sx={{ fontSize: '0.7rem' }}>Confidence</Typography>
+                                                <Typography variant="caption" fontWeight={700}>{Math.round(roiData.confidence_score * 100)}%</Typography>
+                                            </Box>
+                                            <Box>
+                                                <Typography variant="caption" color="text.secondary" display="block" sx={{ fontSize: '0.7rem' }}>Status</Typography>
+                                                <Typography variant="caption" fontWeight={700} sx={{
+                                                    color: roiData.roas >= 2 ? 'success.dark' : roiData.roas >= 1 ? 'warning.dark' : 'error.dark'
+                                                }}>
+                                                    {roiData.assessment.split(' ')[0]}
+                                                </Typography>
+                                            </Box>
+                                        </Box>
+                                    </Paper>
+                                )}
+
+                                {/* Authenticity - Compact Detail */}
+                                {authenticityData && (
+                                    <Paper variant="outlined" sx={{ p: 2, bgcolor: 'grey.50', flex: 1 }}>
+                                        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 1.5 }}>
+                                            <Typography variant="body2" fontWeight={600} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                                🛡️ Auth Check
+                                            </Typography>
+                                            <Typography variant="body1" fontWeight={700} sx={{
+                                                color: authenticityData.score >= 85 ? 'success.main' : authenticityData.score >= 70 ? 'warning.main' : 'error.main'
+                                            }}>
+                                                {authenticityData.score}/100
+                                            </Typography>
+                                        </Stack>
+
+                                        <LinearProgress
+                                            variant="determinate"
+                                            value={authenticityData.score}
+                                            sx={{
+                                                height: 4,
+                                                borderRadius: 1,
+                                                mb: 2,
+                                                bgcolor: 'grey.200',
+                                                '& .MuiLinearProgress-bar': {
+                                                    bgcolor: authenticityData.score >= 85 ? 'success.main' : authenticityData.score >= 70 ? 'warning.main' : 'error.main',
+                                                    borderRadius: 1
+                                                },
+                                            }}
+                                        />
+
+                                        <Box>
+                                            <Typography variant="caption" color="text.secondary" sx={{ textTransform: 'uppercase', fontSize: '0.65rem', mb: 0.5, display: 'block' }}>
+                                                Red Flags ({authenticityData.red_flags?.length || 0})
+                                            </Typography>
+                                            {authenticityData.red_flags?.length > 0 ? (
+                                                <Stack spacing={0.5}>
+                                                    {authenticityData.red_flags.slice(0, 2).map((flag: any, idx: number) => (
+                                                        <Typography key={idx} variant="caption" sx={{
+                                                            display: 'block',
+                                                            whiteSpace: 'nowrap',
+                                                            overflow: 'hidden',
+                                                            textOverflow: 'ellipsis',
+                                                            color: flag.severity === 'high' ? 'error.main' : 'text.secondary',
+                                                            fontSize: '0.7rem'
+                                                        }}>
+                                                            • {flag.flag}
+                                                        </Typography>
+                                                    ))}
+                                                    {authenticityData.red_flags.length > 2 && (
+                                                        <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.7rem' }}>
+                                                            + {authenticityData.red_flags.length - 2} more
+                                                        </Typography>
+                                                    )}
+                                                </Stack>
+                                            ) : (
+                                                <Typography variant="caption" color="success.main" sx={{ fontSize: '0.7rem' }}>
+                                                    No anomalies detected
+                                                </Typography>
+                                            )}
+                                        </Box>
+                                    </Paper>
+                                )}
+                            </Stack>
                         )}
 
                         {/* Response Area */}
