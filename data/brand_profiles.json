@@ -1,0 +1,111 @@
+[
+  {
+    "brand_id": "perplexity",
+    "brand_name": "Perplexity AI",
+    "vertical": "tech",
+    "product_type": "AI-powered search engine",
+    "target_audience": "Tech-savvy professionals, researchers, developers, students",
+    "campaign_budget": 50000,
+    "monthly_influencer_budget": 15000,
+    "preferred_platforms": ["YouTube", "Twitter", "LinkedIn"],
+    "brand_voice": "Innovative, helpful, intelligent, accessible",
+    "key_messaging": [
+      "Get answers, not just links",
+      "AI-powered search that understands context",
+      "Research faster with cited sources",
+      "Your AI research assistant"
+    ],
+    "content_guidelines": {
+      "creative_freedom": "high",
+      "required_talking_points": [
+        "Show the product in action",
+        "Highlight source citations",
+        "Mention speed and accuracy"
+      ],
+      "prohibited_content": [
+        "Comparisons claiming superiority over Google",
+        "False accuracy claims",
+        "Misrepresenting AI capabilities"
+      ],
+      "preferred_integration_length": "60-90 seconds",
+      "usage_rights": "30 days social media usage"
+    },
+    "ideal_creator_profile": {
+      "categories": ["tech", "productivity", "education", "business"],
+      "min_subscribers": 10000,
+      "min_engagement_rate": 0.05,
+      "audience_demographics": "18-45, college-educated, tech-forward"
+    },
+    "pricing_multipliers": {
+      "tech_niche": 1.2,
+      "ai_focused_content": 1.3,
+      "developer_audience": 1.25
+    },
+    "campaign_goals": {
+      "primary": "Brand awareness among technical audiences",
+      "secondary": "Free trial sign-ups",
+      "metrics": ["impressions", "engagement_rate", "click_through_rate", "sign_ups"]
+    },
+    "contact": {
+      "email": "outreach@perplexity.ai",
+      "partnership_manager": "Sarah Johnson"
+    }
+  },
+  {
+    "brand_id": "copyai",
+    "brand_name": "Copy AI",
+    "vertical": "tech",
+    "product_type": "AI writing assistant and content generation tool",
+    "target_audience": "Marketers, content creators, entrepreneurs, small business owners",
+    "campaign_budget": 75000,
+    "monthly_influencer_budget": 20000,
+    "preferred_platforms": ["YouTube", "Instagram", "TikTok", "LinkedIn"],
+    "brand_voice": "Creative, empowering, efficient, professional",
+    "key_messaging": [
+      "Write better marketing copy in seconds",
+      "Your AI-powered creative partner",
+      "Scale your content creation effortlessly",
+      "From blank page to published in minutes"
+    ],
+    "content_guidelines": {
+      "creative_freedom": "very_high",
+      "required_talking_points": [
+        "Demonstrate the tool generating content",
+        "Show time-saving benefits",
+        "Highlight variety of templates"
+      ],
+      "prohibited_content": [
+        "Suggesting AI replaces human creativity entirely",
+        "Promoting plagiarism or unethical content use",
+        "Overpromising results"
+      ],
+      "preferred_integration_length": "90-120 seconds",
+      "usage_rights": "60 days social media usage + website testimonial"
+    },
+    "ideal_creator_profile": {
+      "categories": ["marketing", "business", "productivity", "content creation", "entrepreneurship"],
+      "min_subscribers": 5000,
+      "min_engagement_rate": 0.08,
+      "audience_demographics": "25-50, marketers, business owners, content creators"
+    },
+    "pricing_multipliers": {
+      "marketing_niche": 1.15,
+      "business_focused": 1.2,
+      "entrepreneur_audience": 1.25
+    },
+    "campaign_goals": {
+      "primary": "Paid subscription conversions",
+      "secondary": "Brand awareness in marketing community",
+      "metrics": ["conversions", "free_trial_starts", "engagement_rate", "watch_time"]
+    },
+    "contact": {
+      "email": "partnerships@copy.ai",
+      "partnership_manager": "Mike Anderson"
+    },
+    "special_offers": {
+      "affiliate_program": true,
+      "affiliate_commission": "30% recurring for 12 months",
+      "creator_discount_code": "20% off for viewers"
+    }
+  }
+]

@@ -1,0 +1,527 @@
+[
+  {
+    "thread_id": "thread_001",
+    "category": "price_negotiation",
+    "influencer_name": "Alex Chen",
+    "influencer_email": "alex@techreview.com",
+    "youtube_channel_url": "https://www.youtube.com/@TechReviewAlex",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "alex@techreview.com",
+        "subject": "Partnership Opportunity with Perplexity AI",
+        "body": "Hi Alex,\n\nWe love your tech content! We'd like to sponsor a video about AI search tools. Based on your channel metrics (100K subs, 25K avg views), we're offering $800 for a 60-90 second integration.\n\nInterested?\n\nBest,\nSarah",
+        "timestamp": "2024-01-15T10:30:00Z"
+      },
+      {
+        "from": "alex@techreview.com",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: Partnership Opportunity with Perplexity AI",
+        "body": "Hey Sarah,\n\nThanks for reaching out! I'm definitely interested. However, my usual rate for integrations is $1,000. Would you be able to match that? Happy to discuss.\n\nCheers,\nAlex",
+        "timestamp": "2024-01-15T14:20:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_002",
+    "category": "not_interested",
+    "influencer_name": "Maya Rodriguez",
+    "influencer_email": "maya@lifestylevlog.com",
+    "youtube_channel_url": "https://www.youtube.com/@MayaLifestyle",
+    "brand": "copyai",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "partnerships@copy.ai",
+        "to": "maya@lifestylevlog.com",
+        "subject": "Collaboration with Copy AI",
+        "body": "Hi Maya,\n\nWe're Copy AI, an AI writing assistant. We'd love to sponsor your channel with a $500 integration deal.\n\nLet us know!\n\nBest,\nMike",
+        "timestamp": "2024-01-16T09:00:00Z"
+      },
+      {
+        "from": "maya@lifestylevlog.com",
+        "to": "partnerships@copy.ai",
+        "subject": "Re: Collaboration with Copy AI",
+        "body": "Hi Mike,\n\nThank you for thinking of me! Unfortunately, AI writing tools don't really align with my lifestyle content and audience. I don't think this would be a good fit.\n\nBest of luck finding the right creator!\n\nMaya",
+        "timestamp": "2024-01-16T11:30:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_003",
+    "category": "acceptance",
+    "influencer_name": "Jordan Lee",
+    "influencer_email": "jordan@codingjourney.dev",
+    "youtube_channel_url": "https://www.youtube.com/@CodingWithJordan",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "jordan@codingjourney.dev",
+        "subject": "Perplexity AI Sponsorship",
+        "body": "Hi Jordan,\n\nLove your coding tutorials! We'd like to sponsor a video for $1,200 (based on 75K subs, 20% engagement).\n\nInterested?\n\nSarah",
+        "timestamp": "2024-01-17T10:00:00Z"
+      },
+      {
+        "from": "jordan@codingjourney.dev",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: Perplexity AI Sponsorship",
+        "body": "Hey Sarah!\n\nThis sounds perfect! I've actually been using Perplexity for research and would love to share it with my audience. $1,200 works great. Let's do it!\n\nWhen can we start?\n\nJordan",
+        "timestamp": "2024-01-17T12:45:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_004",
+    "category": "bulk_deal",
+    "influencer_name": "Chris Taylor",
+    "influencer_email": "chris@aitechtalks.io",
+    "youtube_channel_url": "https://www.youtube.com/@AITechTalks",
+    "brand": "copyai",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "partnerships@copy.ai",
+        "to": "chris@aitechtalks.io",
+        "subject": "Multi-Video Partnership",
+        "body": "Hi Chris,\n\nWe're offering $900 per video. Thoughts?\n\nMike",
+        "timestamp": "2024-01-18T09:30:00Z"
+      },
+      {
+        "from": "chris@aitechtalks.io",
+        "to": "partnerships@copy.ai",
+        "subject": "Re: Multi-Video Partnership",
+        "body": "Hey Mike,\n\nI like the idea! What if we do a 3-video package? I could offer a discounted rate of $2,400 total ($800/video) for a 3-month campaign. Would give you consistent exposure.\n\nLet me know!\n\nChris",
+        "timestamp": "2024-01-18T14:00:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_005",
+    "category": "clarification",
+    "influencer_name": "Sam Patel",
+    "influencer_email": "sam@productivityhacks.com",
+    "youtube_channel_url": "https://www.youtube.com/@ProductivitySam",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "sam@productivityhacks.com",
+        "subject": "Sponsorship Inquiry",
+        "body": "Hi Sam,\n\nWe'd like to sponsor a video for $700. Interested?\n\nSarah",
+        "timestamp": "2024-01-19T10:00:00Z"
+      },
+      {
+        "from": "sam@productivityhacks.com",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: Sponsorship Inquiry",
+        "body": "Hi Sarah,\n\nThanks for reaching out! Quick questions:\n\n1. What level of creative freedom do I have with the integration?\n2. Do you require specific talking points?\n3. What's the timeline for delivery?\n\nSam",
+        "timestamp": "2024-01-19T13:20:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_006",
+    "category": "price_negotiation",
+    "influencer_name": "Emma Watson",
+    "influencer_email": "emma@digitalmarketing101.com",
+    "youtube_channel_url": "https://www.youtube.com/@DigitalMarketingEmma",
+    "brand": "copyai",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "partnerships@copy.ai",
+        "to": "emma@digitalmarketing101.com",
+        "subject": "Copy AI Partnership",
+        "body": "Hi Emma,\n\nWe're offering $600 for a sponsored video integration.\n\nMike",
+        "timestamp": "2024-01-20T09:00:00Z"
+      },
+      {
+        "from": "emma@digitalmarketing101.com",
+        "to": "partnerships@copy.ai",
+        "subject": "Re: Copy AI Partnership",
+        "body": "Hi Mike,\n\nI appreciate the offer, but $600 is below my standard rate. I typically charge $1,100 for sponsored integrations given my engagement rates. Can you go higher?\n\nEmma",
+        "timestamp": "2024-01-20T11:45:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_007",
+    "category": "not_interested",
+    "influencer_name": "Tyler Brooks",
+    "influencer_email": "tyler@gaminglegends.tv",
+    "youtube_channel_url": "https://www.youtube.com/@TylerGaming",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "tyler@gaminglegends.tv",
+        "subject": "Gaming Content Sponsorship",
+        "body": "Hi Tyler,\n\nWe'd love to sponsor your channel for $800.\n\nSarah",
+        "timestamp": "2024-01-21T10:00:00Z"
+      },
+      {
+        "from": "tyler@gaminglegends.tv",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: Gaming Content Sponsorship",
+        "body": "Hey,\n\nSorry, but I'm already committed to other sponsors for the next 3 months. Not taking on new partnerships right now.\n\nTyler",
+        "timestamp": "2024-01-21T15:30:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_008",
+    "category": "acceptance",
+    "influencer_name": "Priya Singh",
+    "influencer_email": "priya@aiforbusiness.io",
+    "youtube_channel_url": "https://www.youtube.com/@AIForBusiness",
+    "brand": "copyai",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "partnerships@copy.ai",
+        "to": "priya@aiforbusiness.io",
+        "subject": "Partnership Opportunity",
+        "body": "Hi Priya,\n\nWe're offering $950 for a sponsored integration based on your excellent engagement metrics.\n\nMike",
+        "timestamp": "2024-01-22T09:00:00Z"
+      },
+      {
+        "from": "priya@aiforbusiness.io",
+        "to": "partnerships@copy.ai",
+        "subject": "Re: Partnership Opportunity",
+        "body": "Hi Mike,\n\nYes! This sounds great. I've been wanting to try Copy AI anyway. Let's move forward.\n\nPriya",
+        "timestamp": "2024-01-22T10:15:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_009",
+    "category": "price_negotiation",
+    "influencer_name": "Marcus Johnson",
+    "influencer_email": "marcus@financeexplained.tv",
+    "youtube_channel_url": "https://www.youtube.com/@FinanceWithMarcus",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "marcus@financeexplained.tv",
+        "subject": "Sponsorship Proposal",
+        "body": "Hi Marcus,\n\nWe're offering $1,500 for a sponsored video (300K subs, finance niche).\n\nSarah",
+        "timestamp": "2024-01-23T10:00:00Z"
+      },
+      {
+        "from": "marcus@financeexplained.tv",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: Sponsorship Proposal",
+        "body": "Hi Sarah,\n\nI'm interested! My rate is typically $1,650 for finance content. Would you be able to meet that? It's only a $150 difference.\n\nMarcus",
+        "timestamp": "2024-01-23T12:30:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_010",
+    "category": "price_negotiation",
+    "influencer_name": "Lisa Chen",
+    "influencer_email": "lisa@startupstories.com",
+    "youtube_channel_url": "https://www.youtube.com/@StartupStoriesLisa",
+    "brand": "copyai",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "partnerships@copy.ai",
+        "to": "lisa@startupstories.com",
+        "subject": "Collaboration Opportunity",
+        "body": "Hi Lisa,\n\nWe'd like to offer $700 for a video integration.\n\nMike",
+        "timestamp": "2024-01-24T09:00:00Z"
+      },
+      {
+        "from": "lisa@startupstories.com",
+        "to": "partnerships@copy.ai",
+        "subject": "Re: Collaboration Opportunity",
+        "body": "Hi Mike,\n\nThanks! However, I need $1,400 minimum for sponsored content. That's double what you're offering. Can you match that?\n\nLisa",
+        "timestamp": "2024-01-24T11:00:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_011",
+    "category": "not_interested",
+    "influencer_name": "Ryan Miller",
+    "influencer_email": "ryan@outdooradventures.tv",
+    "youtube_channel_url": "https://www.youtube.com/@RyanOutdoors",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "ryan@outdooradventures.tv",
+        "subject": "Partnership Inquiry",
+        "body": "Hi Ryan,\n\nWe're offering $600 for a sponsorship.\n\nSarah",
+        "timestamp": "2024-01-25T10:00:00Z"
+      },
+      {
+        "from": "ryan@outdooradventures.tv",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: Partnership Inquiry",
+        "body": "Hi Sarah,\n\nI appreciate the offer, but my channel focuses on outdoor gear and adventure travel. An AI search tool doesn't really fit my audience's interests.\n\nRyan",
+        "timestamp": "2024-01-25T14:00:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_012",
+    "category": "bulk_deal",
+    "influencer_name": "Nina Patel",
+    "influencer_email": "nina@marketinginsights.io",
+    "youtube_channel_url": "https://www.youtube.com/@MarketingWithNina",
+    "brand": "copyai",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "partnerships@copy.ai",
+        "to": "nina@marketinginsights.io",
+        "subject": "Multi-Month Campaign",
+        "body": "Hi Nina,\n\nWe're offering $800 per video for a partnership.\n\nMike",
+        "timestamp": "2024-01-26T09:00:00Z"
+      },
+      {
+        "from": "nina@marketinginsights.io",
+        "to": "partnerships@copy.ai",
+        "subject": "Re: Multi-Month Campaign",
+        "body": "Hi Mike,\n\nI'm interested! What if we structure this as a 6-month partnership? I could do 1 video per month at $750 each ($4,500 total). Better ROI for you with sustained exposure.\n\nNina",
+        "timestamp": "2024-01-26T11:30:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_013",
+    "category": "clarification",
+    "influencer_name": "Kevin Nguyen",
+    "influencer_email": "kevin@techstartups.dev",
+    "youtube_channel_url": "https://www.youtube.com/@KevinTechStartups",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "kevin@techstartups.dev",
+        "subject": "Sponsorship Offer",
+        "body": "Hi Kevin,\n\nWe're offering $850 for a video.\n\nSarah",
+        "timestamp": "2024-01-27T10:00:00Z"
+      },
+      {
+        "from": "kevin@techstartups.dev",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: Sponsorship Offer",
+        "body": "Hi Sarah,\n\nInterested! Few questions:\n\n1. Can I show your product in a comparison with competitors?\n2. Is there an affiliate component?\n3. Usage rights for the content?\n\nKevin",
+        "timestamp": "2024-01-27T13:00:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_014",
+    "category": "acceptance",
+    "influencer_name": "Sofia Martinez",
+    "influencer_email": "sofia@productivitygeek.com",
+    "youtube_channel_url": "https://www.youtube.com/@ProductivityGeek",
+    "brand": "copyai",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "partnerships@copy.ai",
+        "to": "sofia@productivitygeek.com",
+        "subject": "Quick Partnership Opportunity",
+        "body": "Hi Sofia,\n\n$750 for a sponsored integration. Interested?\n\nMike",
+        "timestamp": "2024-01-28T09:00:00Z"
+      },
+      {
+        "from": "sofia@productivitygeek.com",
+        "to": "partnerships@copy.ai",
+        "subject": "Re: Quick Partnership Opportunity",
+        "body": "Mike,\n\nPerfect timing! I was just planning content about AI tools. $750 works for me. Let's go!\n\nSofia",
+        "timestamp": "2024-01-28T09:30:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_015",
+    "category": "price_negotiation",
+    "influencer_name": "David Kim",
+    "influencer_email": "david@datasciencebasics.io",
+    "youtube_channel_url": "https://www.youtube.com/@DataScienceDavid",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "david@datasciencebasics.io",
+        "subject": "Partnership Proposal",
+        "body": "Hi David,\n\nWe're offering $1,000 based on your channel metrics.\n\nSarah",
+        "timestamp": "2024-01-29T10:00:00Z"
+      },
+      {
+        "from": "david@datasciencebasics.io",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: Partnership Proposal",
+        "body": "Hi Sarah,\n\nThanks for the offer. My standard rate is $1,050. Can you do that?\n\nDavid",
+        "timestamp": "2024-01-29T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_016",
+    "category": "not_interested",
+    "influencer_name": "Rachel Green",
+    "influencer_email": "rachel@beautytips.tv",
+    "youtube_channel_url": "https://www.youtube.com/@RachelBeauty",
+    "brand": "copyai",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "partnerships@copy.ai",
+        "to": "rachel@beautytips.tv",
+        "subject": "Collaboration",
+        "body": "Hi Rachel,\n\n$500 for a sponsored video?\n\nMike",
+        "timestamp": "2024-01-30T09:00:00Z"
+      },
+      {
+        "from": "rachel@beautytips.tv",
+        "to": "partnerships@copy.ai",
+        "subject": "Re: Collaboration",
+        "body": "Hi Mike,\n\nI don't think an AI writing tool is relevant to my beauty and makeup audience. Thanks though!\n\nRachel",
+        "timestamp": "2024-01-30T10:30:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_017",
+    "category": "price_negotiation",
+    "influencer_name": "James Wilson",
+    "influencer_email": "james@airesearch.dev",
+    "youtube_channel_url": "https://www.youtube.com/@AIResearchJames",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "james@airesearch.dev",
+        "subject": "AI Content Partnership",
+        "body": "Hi James,\n\nWe're offering $900 for a sponsored integration.\n\nSarah",
+        "timestamp": "2024-01-31T10:00:00Z"
+      },
+      {
+        "from": "james@airesearch.dev",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: AI Content Partnership",
+        "body": "Hi Sarah,\n\nInterested! My rate is $1,500 though. Can you meet that? My audience is very technical and engaged.\n\nJames",
+        "timestamp": "2024-01-31T13:00:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_018",
+    "category": "bulk_deal",
+    "influencer_name": "Amanda Torres",
+    "influencer_email": "amanda@businessgrowth.tv",
+    "youtube_channel_url": "https://www.youtube.com/@BusinessGrowthAmanda",
+    "brand": "copyai",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "partnerships@copy.ai",
+        "to": "amanda@businessgrowth.tv",
+        "subject": "Long-term Partnership",
+        "body": "Hi Amanda,\n\n$850 per video for a partnership.\n\nMike",
+        "timestamp": "2024-02-01T09:00:00Z"
+      },
+      {
+        "from": "amanda@businessgrowth.tv",
+        "to": "partnerships@copy.ai",
+        "subject": "Re: Long-term Partnership",
+        "body": "Hi Mike,\n\nI like this! What about a 4-video series over 2 months? I could do $3,200 total ($800/video). Package deal?\n\nAmanda",
+        "timestamp": "2024-02-01T11:00:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_019",
+    "category": "not_interested",
+    "influencer_name": "Brian Foster",
+    "influencer_email": "brian@cookingchannel.tv",
+    "youtube_channel_url": "https://www.youtube.com/@BrianCooks",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "brian@cookingchannel.tv",
+        "subject": "Sponsorship",
+        "body": "Hi Brian,\n\n$600 for a video?\n\nSarah",
+        "timestamp": "2024-02-02T10:00:00Z"
+      },
+      {
+        "from": "brian@cookingchannel.tv",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: Sponsorship",
+        "body": "Hey Sarah,\n\nI run a cooking channel - AI search doesn't fit. No thanks!\n\nBrian",
+        "timestamp": "2024-02-02T11:00:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_020",
+    "category": "bulk_deal",
+    "influencer_name": "Olivia Brown",
+    "influencer_email": "olivia@contentcreation101.com",
+    "youtube_channel_url": "https://www.youtube.com/@ContentCreationOlivia",
+    "brand": "copyai",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "partnerships@copy.ai",
+        "to": "olivia@contentcreation101.com",
+        "subject": "Content Creator Partnership",
+        "body": "Hi Olivia,\n\n$700 per video. Thoughts?\n\nMike",
+        "timestamp": "2024-02-03T09:00:00Z"
+      },
+      {
+        "from": "olivia@contentcreation101.com",
+        "to": "partnerships@copy.ai",
+        "subject": "Re: Content Creator Partnership",
+        "body": "Hi Mike,\n\nWhat if we did 10 videos over 6 months? I could do $6,500 total ($650/video). Gives you consistent content featuring Copy AI.\n\nOlivia",
+        "timestamp": "2024-02-03T11:30:00Z"
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_021",
+    "category": "price_negotiation",
+    "influencer_name": "Daniel Park",
+    "influencer_email": "daniel@machinelearning.dev",
+    "youtube_channel_url": "https://www.youtube.com/@MLWithDaniel",
+    "brand": "perplexity",
+    "status": "pending",
+    "thread": [
+      {
+        "from": "outreach@perplexity.ai",
+        "to": "daniel@machinelearning.dev",
+        "subject": "ML Content Sponsorship",
+        "body": "Hi Daniel,\n\nWe're offering $1,100 for a video integration.\n\nSarah",
+        "timestamp": "2024-02-04T10:00:00Z"
+      },
+      {
+        "from": "daniel@machinelearning.dev",
+        "to": "outreach@perplexity.ai",
+        "subject": "Re: ML Content Sponsorship",
+        "body": "Hi Sarah,\n\nI'm interested but my rate is $2,000 for sponsored content. That's what my analytics justify. Can you work with that?\n\nDaniel",
+        "timestamp": "2024-02-04T14:00:00Z"
+      }
+    ]
+  }
+]
