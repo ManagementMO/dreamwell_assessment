@@ -39,10 +39,25 @@ export interface EmailMessage {
   timestamp?: string;
 }
 
+export interface PricingBreakdown {
+  recommended_offer: number;
+  engagement_multiplier: number;
+  niche_multiplier: number;
+  consistency_multiplier: number;
+  base_cpm?: number;
+  final_cpm?: number;
+  metrics?: {
+    subscribers?: number;
+    avg_views?: number;
+    engagement_rate?: number;
+    consistency?: string;
+  };
+}
+
 export interface GeneratedResponse {
   category: string;
   response_draft: string;
-  pricing_breakdown?: any;
+  pricing_breakdown?: PricingBreakdown;
 }
 
 // API Functions

@@ -226,7 +226,19 @@ async def agent_orchestrator(email_context: Dict[str, Any], brand_id: str) -> Di
                              try:
                                  data = json.loads(tool_output)
                                  if data.get("success"):
-                                     pricing_breakdown = data.get("calculation")
+                                     calc = data.get("calculation", {})
+                                     mults = calc.get("multipliers", {})
+                                     rec = data.get("recommendation", {})
+                                     # Map to flat structure frontend expects
+                                     pricing_breakdown = {
+                                         "recommended_offer": rec.get("offer_price", calc.get("estimated_total_price", 0)),
+                                         "engagement_multiplier": mults.get("engagement", 1.0),
+                                         "niche_multiplier": mults.get("niche", 1.0),
+                                         "consistency_multiplier": mults.get("consistency", 1.0),
+                                         "base_cpm": mults.get("base_cpm", 10),
+                                         "final_cpm": calc.get("final_cpm", 10),
+                                         "metrics": calc.get("metrics", {}),
+                                     }
                              except:
                                  pass
                      else:
@@ -345,7 +357,17 @@ async def get_email_thread(thread_id: str):
                 data = json.loads(content_item.text)
                 if not data.get("success"):
                     raise HTTPException(status_code=404, detail=data.get("error"))
-                return data
+                
+                # Map 'thread' to 'messages' for frontend compatibility
+                email_data = data.get("data", {})
+                if "thread" in email_data and "messages" not in email_data:
+                    email_data["messages"] = email_data["thread"]
+                
+                # Also extract subject from first message if not present
+                if not email_data.get("subject") and email_data.get("messages"):
+                    email_data["subject"] = email_data["messages"][0].get("subject", "No Subject")
+                
+                return {"success": True, "data": email_data}
         
         # Fallback
         return result

@@ -101,9 +101,22 @@ def find_brand_by_id(brand_id: str) -> Optional[Dict]:
 
 
 def find_youtube_profile_by_url(url: str) -> Optional[Dict]:
-    """Find a YouTube profile by URL (for fallback)"""
+    """Find a YouTube profile by URL (for fallback), with flexible matching"""
+    # Extract handle from input URL for flexible matching
+    input_handle = extract_channel_id_from_url(url).lower() if url else ""
+    
     for profile in youtube_profiles:
+        # Exact match
         if profile.get("channel_url") == url:
+            return profile
+        # Handle match
+        profile_handle = profile.get("handle", "").lower()
+        if input_handle and profile_handle and input_handle == profile_handle:
+            return profile
+        # Extract and compare handles from URLs
+        profile_url = profile.get("channel_url", "")
+        profile_url_handle = extract_channel_id_from_url(profile_url).lower() if profile_url else ""
+        if input_handle and profile_url_handle and input_handle == profile_url_handle:
             return profile
     return None
 
