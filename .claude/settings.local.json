@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.dreamwell.ai)",
+      "WebFetch(domain:blog.dreamwell.ai)",
+      "WebFetch(domain:ca.linkedin.com)",
+      "WebFetch(domain:www.netinfluencer.com)",
+      "Bash(if [ -f \"package.json\" ])",
+      "Bash(then cat package.json)",
+      "Bash(else echo \"No package.json found\")",
+      "Bash(fi)",
+      "Bash(find:*)"
+    ]
+  }
+}
